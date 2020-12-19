@@ -4,10 +4,18 @@ import SiteLayout from '@/components/site-layout';
 // import styles from './index.module.scss';
 
 
+export default function Index() {
 
-export default function Home() {
   return (
     <SiteLayout title="site index">
+
+    <style jsx>{`
+      div {
+        background-color: red;
+      }
+    `}</style>
+
+
       <div className="app">
         <ul>
           <li>

@@ -1,5 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
+import styles from './standard-layout.module.scss';
+import classNames from 'classnames';
 
 export default function StandardLayout() {
   return (
@@ -11,21 +13,21 @@ export default function StandardLayout() {
         <link rel="stylesheet" href="css/reset.css" />
       </Head>
 
-      <header className="header">
+      <header className={ styles.header }>
         header
       </header>
 
-      <div className="wrapper">
-        <main className="main">
-
+      <div className={ classNames(styles.wrapper, styles.clearfix) }>
+        <main className={styles.main}>
+          main
         </main>
-        <div className="sidemenu">
-
+        <div className={ styles.sidemenu }>
+          side
         </div>
       </div>
 
-      <footer className="footer">
-
+      <footer className={ styles.footer }>
+          footer
       </footer>
     </>
 
