@@ -13,22 +13,25 @@ export default function StandardLayout() {
         <link rel="stylesheet" href="css/reset.css" />
       </Head>
 
-      <header className={ styles.header }>
-        header
-      </header>
+      <div className={styles["standard-layout"]}>
+        <header className={ styles.header }>
+          header
+        </header>
 
-      <div className={ classNames(styles.wrapper, styles.clearfix) }>
-        <main className={styles.main}>
-          main
-        </main>
-        <div className={ styles.sidemenu }>
-          side
+        <div className={ classNames(styles.wrapper, styles.clearfix) }>
+          <main className={styles.main}>
+            main
+          </main>
+          <div className={ styles.sidemenu }>
+            side
+          </div>
         </div>
+
+        <footer className={ styles.footer }>
+            footer
+        </footer>
       </div>
 
-      <footer className={ styles.footer }>
-          footer
-      </footer>
     </>
 
 

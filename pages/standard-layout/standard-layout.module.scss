@@ -1,51 +1,94 @@
-.header {
-    // 画面いっぱい
-    width: 100%;
-}
+@charset "UTF-8";
 
-.wrapper {
-    width: 970px;
+$header-width: 100%;
+$footer-width: 100%;
+$content-width: 660px;
+$sidemenu-width: 275px;
+$between-contents-width: 35px;
 
-    // margin: top side bottom
-    margin: 30px auto 40px;
-}
+.standard-layout {
+    
+    html {
+        font-size: 62.5%;
+    }
+    
+    body {
+        color: #333;
+        font-size: 1.2rem;
+        font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    }
 
-.clearfix::after {
-    content: '';
-    display: block;
-    clear: both;
-}
+    // 全ての要素(疑似要素含む)
+    * {
+        &::before, &::after {
+            box-sizing: border-box;
+        }
+    }
 
-.main {
-    // main タグに対応していないブラウザにも対応するため
-    // display: block; を指定
-    display: block;
-    float: left;
-    width: 660px;
-    background-color: yellow;
-}
-
-.sidemenu {
-    float: right;
-    width: 275px;
-    background-color: blue;
-}
-
-.footer {
-    // 画面いっぱい
-    width: 100%;
-}
-
-.main, .header, .sidemenu, .footer {
-    border: 1px solid #aaa;
-    background-color: #ccc;
-
-}
-
-.header, .footer {
-    height: 100px;
-}
-
-.main, .sidemenu {
-    height: 500px;
+    a {
+        &:link, &:visited, &:hover, &:active {
+            color: #d03c56;
+            text-decoration: none;
+        }
+    }
+    
+    .header {
+        // 画面いっぱい
+        width: $header-width;
+        padding: 28px 0 10px;
+        background-image: url('/standard-layout/images/bg-header.gif');
+        background-repeat: repeat-x;
+        // box-shadow: 右 下 ぼかしの大きさ 拡張の大きさ 影の色; -> 外側に影が出来る
+        // box-shadow: inset 右 下 ぼかしの大きさ 拡張の大きさ 影の色; 内側に影が出来る
+        // , で区切って複数の影を付けることも出来る
+        box-shadow: 0 0 10px 1px #e3e3e3;
+        box-shadow: inset 0 0 10px 1px #e3e3e3;
+    }
+    
+    .wrapper {
+        width: $content-width + $between-contents-width + $sidemenu-width;
+    
+        // margin: top side bottom
+        margin: 30px auto 40px;
+    }
+    
+    .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .main {
+        // main タグに対応していないブラウザにも対応するため
+        // display: block; を指定
+        display: block;
+        float: left;
+        width: $content-width;
+        background-color: yellow;
+    }
+    
+    .sidemenu {
+        float: right;
+        width: $sidemenu-width;
+        background-color: blue;
+    }
+    
+    .footer {
+        // 画面いっぱい
+        width: $footer-width;
+    }
+    
+    .main, .header, .sidemenu, .footer {
+        border: 1px solid #aaa;
+        background-color: #ccc;
+    
+    }
+    
+    .header, .footer {
+        height: 100px;
+    }
+    
+    .main, .sidemenu {
+        height: 500px;
+    }
 }

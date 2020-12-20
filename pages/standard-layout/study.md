@@ -10,7 +10,6 @@
 index.tsx
 
 ```typescript
-
 import React from 'react';
 import Head from 'next/head';
 import styles from './standard-layout.module.scss';
@@ -18,6 +17,7 @@ import classNames from 'classnames';
 
 export default function StandardLayout() {
   return (
+
     <>
       <Head>
         <title>standard layout</title>
@@ -25,89 +25,98 @@ export default function StandardLayout() {
         <link rel="stylesheet" href="css/reset.css" />
       </Head>
 
-      <header className={ styles.header }>
-        header
-      </header>
+      <div className={styles["standard-layout"]}>
+        <header className={ styles.header }>
+          header
+        </header>
 
-      <div className={ classNames(styles.wrapper, styles.clearfix) }>
-        <main className={styles.main}>
-          main
-        </main>
-        <div className={ styles.sidemenu }>
-          side
+        <div className={ classNames(styles.wrapper, styles.clearfix) }>
+          <main className={styles.main}>
+            main
+          </main>
+          <div className={ styles.sidemenu }>
+            side
+          </div>
         </div>
+
+        <footer className={ styles.footer }>
+            footer
+        </footer>
       </div>
 
-      <footer className={ styles.footer }>
-          footer
-      </footer>
     </>
+
+
   );
 }
+
 
 ```
 
 standard-layout.module.scss
 ```scss
+@charset "UTF-8";
 
-.header {
-    // 画面いっぱい
-    width: 100%;
+.standard-layout {
+    
+    .header {
+        // 画面いっぱい
+        width: $header-width;
+    }
+    
+    .wrapper {
+        width: $content-width + $between-contents-width + $sidemenu-width;
+    
+        // margin: top side bottom
+        margin: 30px auto 40px;
+    }
+    
+    .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .main {
+        // main タグに対応していないブラウザにも対応するため
+        // display: block; を指定
+        display: block;
+        float: left;
+        width: $content-width;
+        background-color: yellow;
+    }
+    
+    .sidemenu {
+        float: right;
+        width: $sidemenu-width;
+        background-color: blue;
+    }
+    
+    .footer {
+        // 画面いっぱい
+        width: $footer-width;
+    }
+    
+    .main, .header, .sidemenu, .footer {
+        border: 1px solid #aaa;
+        background-color: #ccc;
+    
+    }
+    
+    .header, .footer {
+        height: 100px;
+    }
+    
+    .main, .sidemenu {
+        height: 500px;
+    }
 }
-
-.wrapper {
-    width: 970px;
-
-    // margin: top side bottom
-    margin: 30px auto 40px;
-}
-
-.clearfix::after {
-    content: '';
-    display: block;
-    clear: both;
-}
-
-.main {
-    // main タグに対応していないブラウザにも対応するため
-    // display: block; を指定
-    display: block;
-    float: left;
-    width: 660px;
-    background-color: yellow;
-}
-
-.sidemenu {
-    float: right;
-    width: 275px;
-    background-color: blue;
-}
-
-.footer {
-    // 画面いっぱい
-    width: 100%;
-}
-
-// ↓以下は確認ように一時的に記載
-
-.main, .header, .sidemenu, .footer {
-    border: 1px solid #aaa;
-    background-color: #ccc;
-
-}
-
-.header, .footer {
-    height: 100px;
-}
-
-.main, .sidemenu {
-    height: 500px;
-}
-
 ```
 
 
-NextのCSS Modulesは 変数としてimportする必要があり、(`import './standard-layout.module.scss';` と書けない)
+Next では`html`,`p`等の要素のみをターゲットにしたセレクターを使用できないため、ページ全体を`.standard-layout`として
+マークアップする。
+また、NextのCSS Modulesは 変数としてimportする必要があり、(`import './standard-layout.module.scss';` と書けない)
 styleNameにバインドする際、複数の場合は以下のように記載する必要がある
 
 ```typescript
@@ -139,4 +148,69 @@ styleNameにバインドする際、複数の場合は以下のように記載�
     - `.clearfix`の疑似要素`::after`を使用して定義し、`.wrapper` を定義した要素一緒に定義することで同様の効果を得る。
 - `.main .sidebar`は`float: left;`, `float: right;`でそれぞれ左右に配置。`width` でそれぞれの幅を定義する。
 
+
+## 全体のベースとなるCSSを定義する
+
+- フォント
+  - Macように`Hiraginno Kaku Gothic ProN`、Windows向けに`Meiryo`(メイリオ)を指定。間にスペース、全角文字が含まれる場合は`"`か`'`で囲む
+- テキストの色
+  - #333
+- ベースとなるフォントサイズ
+  - ページ全体のサイズを62.5%(16px * 62.5% = 10px)
+    - pxで指定しないのは、ユーザーがブラウザのデフォルト文字サイズを変更していた場合でもある程度対応できるようにするため
+  - body部分を1.2rem(remは最上位の文字サイズに対しての比率、emは親要素に対しての比率)
+- リンクの文字色
+  - `text-decoration: node`でもともと表示される下線を消している
+- `box-sizing` を初期値`content-box`から`border-box`へ変更
+  - `content-box`: `width`の指定値に`border`と`padding`の領域が含まれない
+  - `border-box`: `width`の指定値に`border`と`padding`の領域が含まれる(より直観的に指定できる)
+
+以上の内容をscssへ追記する
+
+```scss
+
+.standard-layout {
+    
+    // ↓追記
+    html {
+        font-size: 62.5%;
+    }
+    
+    body {
+        color: #333;
+        font-size: 1.2rem;
+        font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    }
+
+    // 全ての要素(疑似要素含む)
+    * {
+        &::before, &::after {
+            box-sizing: border-box;
+        }
+    }
+
+    a {
+        &:link, &:visited, &:hover, &:active {
+            color: #d03c56;
+            text-decoration: none;
+        }
+    }
+
+    // ↑追記
+    
+    .header {
+        // 画面いっぱい
+        width: $header-width;
+    }
+    ...
+
+```
+
+## header のコーディング
+
+- paddingの指定
+- 背景画像の設定
+    - 幅1pxの画像をx方向に繰り返し敷き詰めてストライプを表現
+      - 繰り返しで表現出来る場合は元画像の大きさを出来るだけ小さくすることでページ全体のファイルサイズを削減出来る。
+- box-shadowで影を付ける
 
