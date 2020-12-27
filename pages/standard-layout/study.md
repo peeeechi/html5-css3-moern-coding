@@ -273,3 +273,88 @@ htmlとscssの追記部分は以下のようになる
 ```
 
 ### グローバルナビゲーション
+
+`nav`要素の中に`a`要素のリンクをいれ、ナビゲーションとする。
+
+
+
+```html
+
+  ...
+  <header className={ styles.header }>
+
+          <h1 className={styles.logo}>
+            <a href="/standard-layout">SAMPLE SITE</a>
+          </h1>
+
+          <nav className={styles["global-nav"]}>
+            <ul>
+              <li className={classNames(styles["nav-item"], styles["active"])}><a href="#">HOME</a></li>
+              <li className={styles["nav-item"]}><a href="#">ABOUT</a></li>
+              <li className={styles["nav-item"]}><a href="#">NEWS</a></li>
+              <li className={styles["nav-item"]}><a href="#">TOPICS</a></li>
+              <li className={styles["nav-item"]}><a href="#">DOCS</a></li>
+              <li className={styles["nav-item"]}><a href="#">BLOG</a></li>
+            </ul>
+          </nav>
+        </header>
+        ...
+
+```
+
+```scss
+
+  $nav-item-height: 30px;
+
+
+ .global-nav {
+      margin-top: 15px;
+
+      // global-nav とその配下の要素に中央寄せを適用する
+      text-align: center;
+
+      .nav-item {
+
+          // Linkが横並びになるように
+          display: inline-block;
+          margin: 0 10px;
+
+          a {
+              display: inline-block;
+              width: 100px;
+
+              // height と line-height に同じ高さを指定している
+              height: $nav-item-height;
+              line-height: $nav-item-height;
+              text-align: center;
+              border-radius: 8px;
+              color: #666;
+              font-size: 1.3rem;
+              
+              // 文字間のスペース
+              letter-spacing: 1px;
+
+              // transition: 0.15s;
+              transition-duration: 0.15s;
+
+              &:hover {
+                  background-color: #d03c56;
+                  color: #fff;
+              }
+          }
+
+      }
+      
+      .nav-item.active {
+          a {
+              background-color: #d03c56;
+              color: #fff;
+          }
+      }
+
+  }
+
+```
+
+
+##
