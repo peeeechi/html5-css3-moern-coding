@@ -14,14 +14,36 @@ export default function StandardLayout() {
       </Head>
 
       <div className={styles["standard-layout"]}>
+
+        {/* Site Header */}
         <header className={ styles.header }>
-          header
+
+          <h1 className={styles.logo}>
+            <a href="/standard-layout">SAMPLE SITE</a>
+          </h1>
+
+          <nav className={styles["global-nav"]}>
+            <ul>
+              <li className={classNames(styles["nav-item"], styles["active"])}><a href="#">HOME</a></li>
+              <li className={styles["nav-item"]}><a href="#">ABOUT</a></li>
+              <li className={styles["nav-item"]}><a href="#">NEWS</a></li>
+              <li className={styles["nav-item"]}><a href="#">TOPICS</a></li>
+              <li className={styles["nav-item"]}><a href="#">DOCS</a></li>
+              <li className={styles["nav-item"]}><a href="#">BLOG</a></li>
+            </ul>
+          </nav>
         </header>
 
+
         <div className={ classNames(styles.wrapper, styles.clearfix) }>
+
+
           <main className={styles.main}>
             main
           </main>
+
+
+
           <div className={ styles.sidemenu }>
             side
           </div>

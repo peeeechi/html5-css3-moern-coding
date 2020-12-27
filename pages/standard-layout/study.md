@@ -214,3 +214,62 @@ styleNameにバインドする際、複数の場合は以下のように記載�
       - 繰り返しで表現出来る場合は元画像の大きさを出来るだけ小さくすることでページ全体のファイルサイズを削減出来る。
 - box-shadowで影を付ける
 
+
+### タイトル(logo) のコーディング
+タイトルはlogoとして画像で表現するが、そのままだとクローラーがサイトのタイトルを解釈出来ないため、
+`h1`要素でタイトルを記述し、CSSで非表示にする。
+
+- `.logo`として実装
+- `text-indent: 100%`として要素分のインデントを確保してテキストを要素外へ押し出し、
+  - `white-space: nowrap`として要素外へはみ出したテキストの折り返しを禁止し、
+    - `over-flow: hidden` としてはみ出した要素を非表示にしている
+
+また、サイト名のlogoはトップページへのリンクにされることが多いため、
+`a`要素を用いてリンク化する。
+
+
+- keyword: marginの相殺
+
+
+htmlとscssの追記部分は以下のようになる
+
+```html
+...
+    <div className={styles["standard-layout"]}>
+        <header className={ styles.header }>
+          <!-- 追記部分 -->
+          <h1 className={styles.logo}>
+            <a href="/standard-layout">SAMPLE SITE</a>
+          </h1>
+          <!-- 追記部分 -->
+        </header>
+
+        <div className={ classNames(styles.wrapper, styles.clearfix) }>
+          ...
+
+```
+
+```scss
+  .logo {
+      width: $site-logo-width;
+      height: $site-logo-height;
+      // 中央寄せ
+      margin:  0 auto;
+      background-image: url('/standard-layout/images/logo.png');
+
+      // h1に記述されているテキストを非表示にする設定
+      text-indent: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+
+      a {
+          // logo image をピッタリ覆うようにリンクを作成する
+          display: block;
+          width: 100%;
+          height: 100%;
+      }
+  }
+
+```
+
+### グローバルナビゲーション

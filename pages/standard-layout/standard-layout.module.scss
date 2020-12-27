@@ -5,13 +5,16 @@ $footer-width: 100%;
 $content-width: 660px;
 $sidemenu-width: 275px;
 $between-contents-width: 35px;
+$site-logo-width: 225px;
+$site-logo-height: 56px;
+$nav-item-height: 30px;
 
 .standard-layout {
-    
+
     html {
         font-size: 62.5%;
     }
-    
+
     body {
         color: #333;
         font-size: 1.2rem;
@@ -31,7 +34,9 @@ $between-contents-width: 35px;
             text-decoration: none;
         }
     }
-    
+
+    // Header area ----------------------------------------------------------------------------------------------
+
     .header {
         // 画面いっぱい
         width: $header-width;
@@ -44,20 +49,94 @@ $between-contents-width: 35px;
         box-shadow: 0 0 10px 1px #e3e3e3;
         box-shadow: inset 0 0 10px 1px #e3e3e3;
     }
-    
+
+    .logo {
+        width: $site-logo-width;
+        height: $site-logo-height;
+        // 中央寄せ
+        margin:  0 auto;
+        background-image: url('/standard-layout/images/logo.png');
+
+        // h1に記述されているテキストを非表示にする設定
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+
+        a {
+            // logo image をピッタリ覆うようにリンクを作成する
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .global-nav {
+        margin-top: 15px;
+
+        // global-nav とその配下の要素に中央寄せを適用する
+        text-align: center;
+
+        .nav-item {
+
+            // Linkが横並びになるように
+            display: inline-block;
+            margin: 0 10px;
+
+            a {
+                display: inline-block;
+                width: 100px;
+
+                // height と line-height に同じ高さを指定している
+                height: $nav-item-height;
+                line-height: $nav-item-height;
+                text-align: center;
+                border-radius: 8px;
+                color: #666;
+                font-size: 1.3rem;
+                
+                // 文字間のスペース
+                letter-spacing: 1px;
+
+                // transition: 0.15s;
+                transition-duration: 0.15s;
+
+                &:hover {
+                    background-color: #d03c56;
+                    color: #fff;
+                }
+            }
+
+        }
+        
+        .nav-item.active {
+            a {
+                background-color: #d03c56;
+                color: #fff;
+            }
+        }
+
+    }
+
+    // Header area ----------------------------------------------------------------------------------------------
+
+    // Main area ------------------------------------------------------------------------------------------------
+
+    // Main area ------------------------------------------------------------------------------------------------
+
+
     .wrapper {
         width: $content-width + $between-contents-width + $sidemenu-width;
-    
+
         // margin: top side bottom
         margin: 30px auto 40px;
     }
-    
+
     .clearfix::after {
         content: '';
         display: block;
         clear: both;
     }
-    
+
     .main {
         // main タグに対応していないブラウザにも対応するため
         // display: block; を指定
@@ -66,28 +145,28 @@ $between-contents-width: 35px;
         width: $content-width;
         background-color: yellow;
     }
-    
+
     .sidemenu {
         float: right;
         width: $sidemenu-width;
         background-color: blue;
     }
-    
+
     .footer {
         // 画面いっぱい
         width: $footer-width;
     }
-    
+
     .main, .header, .sidemenu, .footer {
         border: 1px solid #aaa;
         background-color: #ccc;
-    
+
     }
-    
+
     .header, .footer {
         height: 100px;
     }
-    
+
     .main, .sidemenu {
         height: 500px;
     }
