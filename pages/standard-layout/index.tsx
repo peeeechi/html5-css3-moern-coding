@@ -106,8 +106,35 @@ export default function StandardLayout() {
 
 
             <h2 className={styles.hidden}>ARTICLES</h2>
-            <div className={styles.articles}>
+            <div className={styles["clearfix"]}>
 
+                <a href="#" className={styles["articles-box"]}>
+                  <h3 className={styles["title"]}>実務で支えるHTML/CSSモダンコーディングTIPS</h3>
+                  <p className={styles["desc"]}>新しい要素が増えて大幅に表現力が広がったHTML5/CSS3を活用し、モダンなコーディングにチャレンジしましょう！</p>
+                  <time className={styles["date"]} dateTime="2015-06-17">2015.06.17 WED</time>
+                  <img src="/standard-layout/images/article.jpg" alt="コーディング画面" className={styles["image"]}/>
+                </a>
+
+                <a href="#" className={styles["articles-box"]}>
+                  <h3 className={styles["title"]}>実務で支えるHTML/CSSモダンコーディングTIPS</h3>
+                  <p className={styles["desc"]}>新しい要素が増えて大幅に表現力が広がったHTML5/CSS3を活用し、モダンなコーディングにチャレンジしましょう！</p>
+                  <time className={styles["date"]} dateTime="2015-06-17">2015.06.17 WED</time>
+                  <img src="/standard-layout/images/article.jpg" alt="コーディング画面" className={styles["image"]}/>
+                </a>
+
+                <a href="#" className={styles["articles-box"]}>
+                  <h3 className={styles["title"]}>実務で支えるHTML/CSSモダンコーディングTIPS</h3>
+                  <p className={styles["desc"]}>新しい要素が増えて大幅に表現力が広がったHTML5/CSS3を活用し、モダンなコーディングにチャレンジしましょう！</p>
+                  <time className={styles["date"]} dateTime="2015-06-17">2015.06.17 WED</time>
+                  <img src="/standard-layout/images/article.jpg" alt="コーディング画面" className={styles["image"]}/>
+                </a>
+
+                <a href="#" className={styles["articles-box"]}>
+                  <h3 className={styles["title"]}>実務で支えるHTML/CSSモダンコーディングTIPS</h3>
+                  <p className={styles["desc"]}>新しい要素が増えて大幅に表現力が広がったHTML5/CSS3を活用し、モダンなコーディングにチャレンジしましょう！</p>
+                  <time className={styles["date"]} dateTime="2015-06-17">2015.06.17 WED</time>
+                  <img src="/standard-layout/images/article.jpg" alt="コーディング画面" className={styles["image"]}/>
+                </a>
             </div>
           </main>
 

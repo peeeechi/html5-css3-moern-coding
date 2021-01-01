@@ -4,6 +4,7 @@ $base-font-size: 16px * 0.625;
 $header-width: 100%;
 $footer-width: 100%;
 $content-width: 660px;
+$articles-width: ($content-width - 30px) / 2;
 $sidemenu-width: 275px;
 $between-contents-width: 35px;
 $site-logo-width: 225px;
@@ -286,13 +287,66 @@ $nav-item-height: 30px;
         }
     }
 
+    .articles-box {
+        position: relative;
+        display: block;
+        width: $articles-width;
+        height: 360px;
+        margin-bottom: 30px;
 
-    .news {
+        padding: 210px 15px 0;
+        box-shadow: 6px 6px 8px -4px rgba($color: #000000, $alpha: 0.15);
+        transition: opacity 0.15s;
 
-    }
+        &:hover {
+            opacity: 0.8;
+        }
 
-    .articles {
+        &:nth-of-type(odd) {
+            float: left;
+        }
 
+        &:nth-of-type(even) {
+            float: right;
+        }
+
+        .title {
+            margin-top: 30px;
+            color: #555;
+            font-size: 1.4 * $base-font-size;
+            line-height: 1.6;
+        }
+
+        .desc {
+            margin-top: 5px;
+            color: #333;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .date {
+            position: absolute;
+            right: 0;
+            bottom: 15px;
+            display: block;
+            width: 160px;
+            padding: 4px;
+            background-color: #b5d264;
+            color: #2d3d54;
+            text-align: center;
+            letter-spacing: 1px;
+            font-weight: bold;
+            font-size: 1.1 * $base-font-size;
+
+        }
+
+        .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
     }
 
 
