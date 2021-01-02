@@ -231,7 +231,14 @@ export default function StandardLayout() {
         </div> {/*  */}
 
         <footer className={ styles.footer }>
-            footer
+          <ul className={styles["horizontal-list"]}>
+            <li className={styles["horizontal-item"]}><a href="#">ABOUT ME</a></li>
+            <li className={styles["horizontal-item"]}><a href="#">SITE MAP</a></li>
+            <li className={styles["horizontal-item"]}><a href="#">SNS</a></li>
+            <li className={styles["horizontal-item"]}><a href="#">CONTACT</a></li>
+          </ul>
+
+          <p className={styles["copyright"]}>Copyright ©︎ 2015 SAMPLE SITE</p>
         </footer>
       </div>
 
