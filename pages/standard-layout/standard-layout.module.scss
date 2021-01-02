@@ -350,6 +350,176 @@ $nav-item-height: 30px;
     }
 
 
+    // Side bar ------------------------------------------------------------------------------------
+    .ranking {
+
+        margin-bottom: 30px;
+        list-style-type: none;
+        counter-reset: ranking;
+
+        .ranking-item {
+            margin-top: 15px;
+
+            a {
+                // a要素をblock要素とし、
+                // その中に要素をinline-block として並べる
+                display: block;
+                font-size: 0;
+                transition: 0.15s;
+
+                &:hover {
+                    opacity: 0.8;
+                    box-shadow: 0 6px 6px -2px rgba(0, 0, 0, 0.15);
+                }
+            }
+
+            .image {
+                width: 55px;
+                height: 55px;
+            }
+
+            .text {
+                display: inline-block;
+                width: 182px;
+                color: #000;
+
+                // inline, table cell にのみ有効
+                vertical-align: top;
+                line-height: 1.5;
+                font-size: $base-font-size * 1.2;
+            }
+
+            // ランキングマーク
+            .order {
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                margin: 0 10px;
+                border: 1px solid #ccc;
+                color: #aaa;
+                vertical-align: 20px;
+                text-align: center;
+                font-weight: bold;
+                // 内側の高さなので height(18px) - border(2px) = 16px
+                line-height: 16px;
+
+                // □を傾かせて菱形にする
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                
+                &::before {
+                    content: counter(ranking);
+                    counter-increment: ranking;
+                    // transform は inline要素にはかけられないため
+                    // inline-block へ変更する
+                    display: inline-block;
+                    font-size: $base-font-size;                    
+                    transform: rotate(-45deg);
+                    -webkit-transform: rotate(-45deg);
+                    -ms-transform: rotate(-45deg);
+                }
+            }
+
+            // 1 ~ 3位は表示を変える ------------------------------
+            &:nth-of-type(1) .order,
+            &:nth-of-type(2) .order,
+            &:nth-of-type(3) .order {
+                border: none;
+                color: #fff;
+                font-weight: normal;
+                // 1~3位まではborderが無いため
+                // line-height はheightと同じ18pxにする
+                line-height: 18px;
+            }
+
+
+            &:nth-of-type(1) .order {
+                background-color: #dab413;
+            }
+
+            &:nth-of-type(2) .order {
+                background-color: #6e7b84;
+            }
+
+            &:nth-of-type(3) .order {
+                background-color: #a0541a;
+            }
+
+        }
+    }
+
+    .documents {
+        margin: 10px 10px 30px;
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        &, ul {
+            list-style: none;
+        }
+
+        // 子セレクタ(直下の階層にのみ適用する)
+        & > li .title {
+            margin: 15px 0;
+            padding-left: 8px;
+            
+            // borderで□を表現する
+            border-left: 5px solid #d03c56;
+            font-size: 1.4 * $base-font-size;
+            line-height: 1.2;
+        }
+
+        // 2つ目以降のli
+        & > li + li {
+            margin-top: 25px;
+        }
+
+        & > li ul {
+            margin: 15px;
+
+            li {
+                margin-bottom: 15px;
+                padding-left: 10px;
+                background: url("/standard-layout/images/arrow.gif") no-repeat left center;
+            }
+        }
+
+
+    }
+
+    .search-box {
+        padding: 15px;
+        background-color: #ccc;
+        font-size: 0;
+
+        & > * {
+            font-size: $base-font-size * 1.2;
+        }
+
+        .search-input {
+            width: 205px;
+            height: 26px;
+            padding: 0 10px;
+            border: none;
+        }
+
+        .search-button {
+            width: 40px;
+            height: 26px;
+            border: none;
+            background-color: #d03c56;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .text {
+            margin-top: 12px;
+        }
+    }
+
+
 
     .wrapper {
         width: $content-width + $between-contents-width + $sidemenu-width;
