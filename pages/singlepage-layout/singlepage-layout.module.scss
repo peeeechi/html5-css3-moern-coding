@@ -15,6 +15,9 @@ $base-font-size: 16px * 0.625;
         box-sizing: border-box;
     }
 
+
+    // header --------------------------------------------------------
+    
     .header {
         // top x bottom
         padding: 170px 30px 80px;
@@ -68,9 +71,56 @@ $base-font-size: 16px * 0.625;
         text-decoration: none;
         letter-spacing: 1px;
         font-size: 1.2 * $base-font-size;
+        transition: all 0.15s;
+
+        &:hover {
+            opacity: 0.9;
+            box-shadow: 0 0 2px 2px #fff;
+        }
     }
 
     .button-showy {
         background-color: #f1b400;
     }
+
+    // header --------------------------------------------------------
+
+
+    // about me ------------------------------------------------------
+
+    .about {
+        padding: 80px 30px;
+        background-color: #fff;
+        color: #333;
+    }
+
+    .heading {
+        display: inline-block;
+        // display: block;
+        margin: 30px 0 15px;
+        padding-bottom: 15px;
+        letter-spacing: 2px;
+        font-size: 4 * $base-font-size;
+        position: relative;
+
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border-bottom: 1px solid #999;
+        }
+
+        &::before {
+            bottom: 5px;
+        }
+    }
+
+    .about-text {
+        margin: 30px 0;
+        line-height: 2.5;
+    }
+
+    // about me ------------------------------------------------------
 }

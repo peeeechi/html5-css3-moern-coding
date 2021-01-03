@@ -29,7 +29,18 @@ export default function SinglepageLayout() {
                 </header>
 
                 <section className={styles["about"]} id="about">
-                    about
+                    <h2 className={styles["heading"]}>ABOUT ME</h2>
+
+                    <p className={styles["about-text"]}>
+                        はじめまして。日本でWebデザイナーをしています。<br></br>
+                        デザインの専門学校を卒業し、制作会社での業務経験を経て、現在はフリーランスとして働いています。
+                    </p>
+
+                    <p className={styles["about-text"]}>
+                        このサイトは『HTML/CSS モダンコーディング』という書籍のサンプルとして作られた、架空のWebデザイナーのポートフォリオサイトです。<br></br>
+                        このサイトのようなサイトを一から作る過程を通して、HTMLとCSSの実践的なコーディングノウハウを学ぶことができます。
+                    </p>
+
                 </section>
 
                 <section className={styles["works"]}>
