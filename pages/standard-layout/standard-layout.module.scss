@@ -359,6 +359,7 @@ $nav-item-height: 30px;
 
         .ranking-item {
             margin-top: 15px;
+            position: relative;
 
             a {
                 // a要素をblock要素とし、
@@ -380,8 +381,10 @@ $nav-item-height: 30px;
 
             .text {
                 display: inline-block;
-                width: 182px;
+                // width: 182px;
+                width: 200px;
                 color: #000;
+                margin-left: 18px;
 
                 // inline, table cell にのみ有効
                 vertical-align: top;
@@ -392,21 +395,26 @@ $nav-item-height: 30px;
             // ランキングマーク
             .order {
                 display: inline-block;
+                position: absolute;
+                left: 36px;
+                top: -9px;
                 width: 18px;
                 height: 18px;
                 margin: 0 10px;
                 border: 1px solid #ccc;
+                border-radius: 9px 9px;
                 color: #aaa;
                 vertical-align: 20px;
                 text-align: center;
                 font-weight: bold;
                 // 内側の高さなので height(18px) - border(2px) = 16px
                 line-height: 16px;
+                background-color: #fff;
 
                 // □を傾かせて菱形にする
-                transform: rotate(45deg);
-                -webkit-transform: rotate(45deg);
-                -ms-transform: rotate(45deg);
+                // transform: rotate(45deg);
+                // -webkit-transform: rotate(45deg);
+                // -ms-transform: rotate(45deg);
                 
                 &::before {
                     content: counter(ranking);
@@ -415,9 +423,9 @@ $nav-item-height: 30px;
                     // inline-block へ変更する
                     display: inline-block;
                     font-size: $base-font-size;                    
-                    transform: rotate(-45deg);
-                    -webkit-transform: rotate(-45deg);
-                    -ms-transform: rotate(-45deg);
+                    // transform: rotate(-45deg);
+                    // -webkit-transform: rotate(-45deg);
+                    // -ms-transform: rotate(-45deg);
                 }
             }
 
