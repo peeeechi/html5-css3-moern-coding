@@ -10,7 +10,7 @@ export default function StandardLayout() {
       <Head>
         <title>standard layout</title>
         <meta charSet="utf-8" />
-        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="/standard-layout/css/reset.css" />
       </Head>
 
       <div className={styles["standard-layout"]}>

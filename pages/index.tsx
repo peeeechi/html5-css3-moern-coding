@@ -22,7 +22,7 @@ export default function Index() {
             <Link href="/standard-layout"><a>standard-layout</a></Link>
           </li>
           <li>
-            <Link href="#"><a>singlepage-layout</a></Link>
+            <Link href="/singlepage-layout"><a>singlepage-layout</a></Link>
           </li>
           <li>
             <Link href="#"><a>grid-layout</a></Link>
