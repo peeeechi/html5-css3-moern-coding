@@ -32,19 +32,67 @@ export default function SinglepageLayout() {
                     <h2 className={styles["heading"]}>ABOUT ME</h2>
 
                     <p className={styles["about-text"]}>
-                        はじめまして。日本でWebデザイナーをしています。<br></br>
+                        はじめまして。日本でWebデザイナーをしています。<br/>
                         デザインの専門学校を卒業し、制作会社での業務経験を経て、現在はフリーランスとして働いています。
                     </p>
 
                     <p className={styles["about-text"]}>
-                        このサイトは『HTML/CSS モダンコーディング』という書籍のサンプルとして作られた、架空のWebデザイナーのポートフォリオサイトです。<br></br>
+                        このサイトは『HTML/CSS モダンコーディング』という書籍のサンプルとして作られた、架空のWebデザイナーのポートフォリオサイトです。<br/>
                         このサイトのようなサイトを一から作る過程を通して、HTMLとCSSの実践的なコーディングノウハウを学ぶことができます。
                     </p>
 
                 </section>
 
                 <section className={styles["works"]}>
-                    works
+                    <h2 className={styles["heading"]}>WORKS</h2>
+
+                    <div className={styles["works-wrapper"]}>
+
+                        <div className={styles["work-box"]}>
+                            <img src="/singlepage-layout/images/tree.jpg" alt="制作事例1" className={styles["work-image"]}/>
+                            <p className={styles["work-text"]}>
+                                ひとつめの制作事例が入ります。<br/>
+                                簡単な説明が入ります。<br/>
+                                使用ツール：XXX, XXX, XXX<br/>
+
+                                <a href="#" className={styles["button"]}>READ MORE</a>
+                            </p>
+                        </div>
+
+                        <div className={styles["work-box"]}>
+                            <img src="/singlepage-layout/images/building.jpg" alt="制作事例2" className={styles["work-image"]}/>
+                            <p className={styles["work-text"]}>
+                                ふたつめの制作事例が入ります。<br/>
+                                簡単な説明が入ります。<br/>
+                                使用ツール：XXX, XXX, XXX<br/>
+
+                                <a href="#" className={styles["button"]}>READ MORE</a>
+                            </p>
+                        </div>
+
+                        <div className={styles["work-box"]}>
+                            <img src="/singlepage-layout/images/lake.jpg" alt="制作事例3" className={styles["work-image"]}/>
+                            <p className={styles["work-text"]}>
+                                みっつめの制作事例が入ります。<br/>
+                                簡単な説明が入ります。<br/>
+                                使用ツール：XXX, XXX, XXX<br/>
+
+                                <a href="#" className={styles["button"]}>READ MORE</a>
+                            </p>
+                        </div>
+
+                        <div className={styles["work-box"]}>
+                            <img src="/singlepage-layout/images/sky.jpg" alt="制作事例4" className={styles["work-image"]}/>
+                            <p className={styles["work-text"]}>
+                                よっつめの制作事例が入ります。<br/>
+                                簡単な説明が入ります。<br/>
+                                使用ツール：XXX, XXX, XXX<br/>
+
+                                <a href="#" className={styles["button"]}>READ MORE</a>
+                            </p>
+                        </div>
+
+                    </div>
                 </section>
 
                 <section className={styles["skills"]}>
